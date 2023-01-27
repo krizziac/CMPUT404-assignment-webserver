@@ -1,9 +1,9 @@
 #  coding: utf-8 
 import socketserver,os
 
-'''
-Copyright 2023 Krizzia Concepcion
-'''
+
+#Copyright 2023 Krizzia Concepcion
+
 # Copyright 2013 Abram Hindle, Eddie Antonio Santos
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,12 +47,10 @@ class MyWebServer(socketserver.BaseRequestHandler):
         #print ("Got a request of: %s\n" % self.data)
         #self.request.sendall(bytearray("OK",'utf-8'))
       
-        #extract the HTTP method
-        #https://stackoverflow.com/questions/13979764/python-converting-sock-recv-to-string
+        #extract the HTTP request
         sent_data = self.data.decode("utf-8")
         data_request = sent_data.split(" ")
 
-        #Extract the request
         http_method = data_request[0]
         url_sent= data_request[1]
         
@@ -75,11 +73,11 @@ class MyWebServer(socketserver.BaseRequestHandler):
         Function checks if the given url is a file or directory. If it is none of them, that indicates that the
         url given is not valid. 
 
-        file and directory -> 200, directory with no "/" -> 301, none -> 404
+        file or directory -> 200, directory with no "/" -> 301, none -> 404
 
         RESOURCES USED:
 
-        Title: Python – Check if a file or directory exists
+        Title: Python - Check if a file or directory exists
         Author: GeeksForGeeks
         Date Published: August 21, 2022 (last updated)
         Link: https://www.geeksforgeeks.org/python-check-if-a-file-or-directory-exists/
@@ -93,7 +91,6 @@ class MyWebServer(socketserver.BaseRequestHandler):
         if ".html" in url and ".css" in url:
             url = url.replace("index.html/","")
            
-
         if url == "/":
             url = "/index.html"
         
