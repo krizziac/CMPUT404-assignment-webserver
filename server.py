@@ -79,9 +79,9 @@ class MyWebServer(socketserver.BaseRequestHandler):
 
         RESOURCES USED:
 
-        Title
-        Author
-        Date Published
+        Title: Python – Check if a file or directory exists
+        Author: GeeksForGeeks
+        Date Published: August 21, 2022 (last updated)
         Link: https://www.geeksforgeeks.org/python-check-if-a-file-or-directory-exists/
 
         Reason: I used this site to figure out how I can check if a given url
@@ -92,9 +92,8 @@ class MyWebServer(socketserver.BaseRequestHandler):
         #check if it starts with "www"
         if ".html" in url and ".css" in url:
             url = url.replace("index.html/","")
-            print(url.replace("index.html/",""))
+           
 
-    
         if url == "/":
             url = "/index.html"
         
